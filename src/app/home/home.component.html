@@ -20,7 +20,7 @@
         <div class="show-board">
             <div class="led-display" *ngFor="let vehicle of vehicles">{{vehicle.shortLabel}} {{vehicle.label}}
                 <span class="time">
-                    {{vehicle.time}}
+                    {{(vehicle.time.split(':',2)[1]-currentTime.split(':',2)[1] + 60)%60 }} min
                 </span>
             </div>
         </div>

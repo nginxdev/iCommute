@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {VehicleProviderService} from "../services/vechicle-provider/vehicle-provider.service";
+import {interval} from "rxjs";
 
 @Component({
     selector: 'app-home',
@@ -9,6 +10,7 @@ import {VehicleProviderService} from "../services/vechicle-provider/vehicle-prov
 
 export class HomeComponent implements OnInit {
     public vehicles = [];
+    public currentTime: string;
 
     constructor(
         private vehicleProviderService: VehicleProviderService,
@@ -16,9 +18,19 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.vehicleProviderService.getVehicles('').subscribe(value => {
-            this.vehicles = value['journeys'];
-            console.log(this.vehicles);
-        });
+        this.updateVehicles();
+        interval(10000).subscribe(() => {
+            this.updateVehicles();
+        })
     }
+
+    public updateVehicles() {
+        this.vehicleProviderService.getTime().subscribe(value => {
+            this.currentTime = value['datetime'].split('T', 2)[1].slice(0, 5);
+            this.vehicleProviderService.getVehicles('').subscribe(value => {
+                this.vehicles = value['journeys'];
+            });
+        })
+    }
+
 }
