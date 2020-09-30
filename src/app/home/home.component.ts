@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-home',
@@ -7,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-    model = {
-        left: true,
-        middle: false,
-        right: false
-    };
+    constructor() {
+    }
 
-    focus;
-    focus1;
-    constructor() { }
-
-    ngOnInit() {}
+    ngOnInit() {
+    }
 }
