@@ -1,6 +1,7 @@
 .show-board{
-  background-color: black;
-  min-height: 100px;
+  position: relative;
+  background-color: #0a0c0d;
+  min-height: 198px;
   width: 400px;
   border: 15px black solid;
   border-radius: 10px;
@@ -10,5 +11,13 @@
   .time{
     float: right;
     text-transform: full-width;
+  }
+  #info{
+    width: 101%;
+    background-color: black;
+    height: 24px;
+    position:absolute;
+    bottom:0;
+    border-top: 6px black;
   }
 }

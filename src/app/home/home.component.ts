@@ -11,6 +11,7 @@ import {interval} from "rxjs";
 export class HomeComponent implements OnInit {
     public vehicles = [];
     public currentTime: string;
+    public stopName: string;
 
     constructor(
         private vehicleProviderService: VehicleProviderService,
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
 
     public updateVehicles() {
         this.vehicleProviderService.getTime().subscribe(value => {
+            console.log(this.stopName);
             this.currentTime = value['datetime'].split('T', 2)[1].slice(0, 5);
             this.vehicleProviderService.getVehicles('').subscribe(value => {
                 this.vehicles = value['journeys'];
