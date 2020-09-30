@@ -8,7 +8,7 @@ import {environment} from "../../../environments/environment";
 export class VehicleProviderService {
     hafasID: string =
         'A%3D1@O%3DMagdeburg,%20Askanischer%20Platz@X%3D11650955@Y%3D52137903@U%3D80@L%3D000005254@B%3D1@p%3D1601025199@';
-    time: string = '2020-09-30 18:30';
+    time: string = '2020-09-30 22:30';
     constructor(private httpClient: HttpClient) {
     }
 
